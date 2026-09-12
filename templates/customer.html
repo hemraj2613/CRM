@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Customers
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Customer Header -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+
+            <div class="row align-items-center">
+
+                <!-- Customer Name & Buttons -->
+                <div class="col-md-8">
+
+                    <h2 class="fw-bold mb-3">
+                        Customer Name
+                    </h2>
+
+                    <a href="#"
+                       class="btn btn-success me-2">
+                        + Create Customer
+                    </a>
+
+                    <a href="#"
+                       class="btn btn-primary me-2">
+                        Update Customer
+                    </a>
+
+                    <a href="#"
+                       class="btn btn-danger">
+                        Delete Customer
+                    </a>
+
+                </div>
+
+
+                <!-- Contact Information -->
+                <div class="col-md-4">
+
+                    <h4 class="fw-bold mb-3">
+                        Contact Information
+                    </h4>
+
+                    <p class="mb-2">
+                        <strong>Email:</strong>
+                        customer@example.com
+                    </p>
+
+                    <p class="mb-0">
+                        <strong>Phone:</strong>
+                        +977 9800000000
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Total Orders -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body text-center">
+
+            <h5 class="text-primary">
+                Total Orders
+            </h5>
+
+            <h1 class="fw-bold">
+                5
+            </h1>
+
+        </div>
+    </div>
+
+
+    <!-- Search & Orders -->
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <!-- Search -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                <h3 class="fw-bold mb-0">
+                    Customer Orders
+                </h3>
+
+                <form class="d-flex">
+
+                    <input type="text"
+                           class="form-control me-2"
+                           placeholder="Search orders...">
+
+                    <button type="submit"
+                            class="btn btn-primary">
+                        Search
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- Orders Table -->
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle">
+
+                    <thead class="table-dark">
+
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                            <th>Date Ordered</th>
+                            <th>Status</th>
+                            <th>Update</th>
+                            <th>Remove</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>Laptop</td>
+
+                            <td>
+                                2
+                            </td>
+
+                            <td>
+                                Rs. 80,000
+                            </td>
+
+                            <td>
+                                Rs. 160,000
+                            </td>
+
+                            <td>
+                                September 12, 2026
+                            </td>
+
+                            <td>
+                                <span class="badge bg-success">
+                                    Delivered
+                                </span>
+                            </td>
+
+                            <td>
+                                <a href="#"
+                                   class="btn btn-sm btn-warning">
+                                    Update
+                                </a>
+                            </td>
+
+                            <td>
+                                <a href="#"
+                                   class="btn btn-sm btn-danger">
+                                    Remove
+                                </a>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Keyboard</td>
+
+                            <td>
+                                1
+                            </td>
+
+                            <td>
+                                Rs. 2,500
+                            </td>
+
+                            <td>
+                                Rs. 2,500
+                            </td>
+
+                            <td>
+                                September 10, 2026
+                            </td>
+
+                            <td>
+                                <span class="badge bg-warning text-dark">
+                                    Pending
+                                </span>
+                            </td>
+
+                            <td>
+                                <a href="#"
+                                   class="btn btn-sm btn-warning">
+                                    Update
+                                </a>
+                            </td>
+
+                            <td>
+                                <a href="#"
+                                   class="btn btn-sm btn-danger">
+                                    Remove
+                                </a>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
