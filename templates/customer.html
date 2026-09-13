@@ -40,6 +40,7 @@ Customers
 
 
                 <!-- Contact Information -->
+
                 <div class="col-md-4">
 
                     <h4 class="fw-bold mb-3">
@@ -48,16 +49,17 @@ Customers
 
                     <p class="mb-2">
                         <strong>Email:</strong>
-                        customer@example.com
+                        {{ customer.email }}
                     </p>
 
                     <p class="mb-0">
                         <strong>Phone:</strong>
-                        +977 9800000000
+                        {{ customer.phone }}
                     </p>
 
                 </div>
 
+            
             </div>
 
         </div>
@@ -73,7 +75,7 @@ Customers
             </h5>
 
             <h1 class="fw-bold">
-                5
+                {{total_orders}}
             </h1>
 
         </div>
@@ -117,9 +119,8 @@ Customers
 
                         <tr>
                             <th>Product</th>
-                            <th>Quantity</th>
+                            <th>Category</th>
                             <th>Price</th>
-                            <th>Total</th>
                             <th>Date Ordered</th>
                             <th>Status</th>
                             <th>Update</th>
@@ -128,27 +129,24 @@ Customers
 
                     </thead>
 
-
+                        {% for order in orders %}
                     <tbody>
 
                         <tr>
 
-                            <td>Laptop</td>
+                            <td>{{ order.product.product_name }}</td>
 
                             <td>
-                                2
+                                {{ order.product.category }}
                             </td>
 
                             <td>
-                                Rs. 80,000
+                                Rs. {{ order.product.price|floatformat:2 }}
                             </td>
 
-                            <td>
-                                Rs. 160,000
-                            </td>
 
                             <td>
-                                September 12, 2026
+                                {{ order.date_created|date:"M d, Y" }}
                             </td>
 
                             <td>
@@ -173,51 +171,8 @@ Customers
 
                         </tr>
 
-
-                        <tr>
-
-                            <td>Keyboard</td>
-
-                            <td>
-                                1
-                            </td>
-
-                            <td>
-                                Rs. 2,500
-                            </td>
-
-                            <td>
-                                Rs. 2,500
-                            </td>
-
-                            <td>
-                                September 10, 2026
-                            </td>
-
-                            <td>
-                                <span class="badge bg-warning text-dark">
-                                    Pending
-                                </span>
-                            </td>
-
-                            <td>
-                                <a href="#"
-                                   class="btn btn-sm btn-warning">
-                                    Update
-                                </a>
-                            </td>
-
-                            <td>
-                                <a href="#"
-                                   class="btn btn-sm btn-danger">
-                                    Remove
-                                </a>
-                            </td>
-
-                        </tr>
-
                     </tbody>
-
+                {% endfor %}
                 </table>
 
             </div>
