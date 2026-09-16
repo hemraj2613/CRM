@@ -18,23 +18,26 @@ Customers
                 <div class="col-md-8">
 
                     <h2 class="fw-bold mb-3">
-                        Customer Name
+                        {{ customer.customer_name }}
                     </h2>
 
-                    <a href="#"
-                       class="btn btn-success me-2">
-                        + Create Customer
-                    </a>
-
-                    <a href="#"
+                    <a href="{% url "update_customer" customer.id %}"
                        class="btn btn-primary me-2">
                         Update Customer
                     </a>
 
-                    <a href="#"
+                    <a href="{% url "create_order"  customer.id %}"
+                       class="btn btn-success">
+                        Place Order
+                    </a>
+
+                    <a href="{% url "delete_customer" customer.id %}"
                        class="btn btn-danger">
                         Delete Customer
                     </a>
+
+
+                    
 
                 </div>
 
@@ -151,19 +154,19 @@ Customers
 
                             <td>
                                 <span class="badge bg-success">
-                                    Delivered
+                                    {{order.status}}
                                 </span>
                             </td>
 
                             <td>
-                                <a href="#"
+                                <a href="{% url "update_customer" customer.id %}"
                                    class="btn btn-sm btn-warning">
                                     Update
                                 </a>
                             </td>
 
                             <td>
-                                <a href="#"
+                                <a href="{% url "delete_order" order.id %}"
                                    class="btn btn-sm btn-danger">
                                     Remove
                                 </a>
