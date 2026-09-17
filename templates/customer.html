@@ -97,11 +97,9 @@ Customers
                     Customer Orders
                 </h3>
 
-                <form class="d-flex">
+                <form class="d-flex" method='get'>
 
-                    <input type="text"
-                           class="form-control me-2"
-                           placeholder="Search orders...">
+                    {{myFilter.form}}
 
                     <button type="submit"
                             class="btn btn-primary">

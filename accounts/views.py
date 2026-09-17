@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+
+from accounts.filters import OrderFilter
 from .models import Product, Customer, Order
 from .forms import OrderForm, CustomerForm
 
@@ -39,10 +41,15 @@ def customer(request, pk):
     orders = customer.order_set.all()
     total_orders = orders.count()
 
+    # filter by customer_order
+    myFilter = OrderFilter(request.GET, queryset=orders)
+    orders = myFilter.qs
+
     context = {
         'customer': customer,
         'orders': orders,
         'total_orders':total_orders,
+        'myFilter': myFilter,
     }
     return render(request, 'customer.html',context)
 
