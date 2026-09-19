@@ -3,7 +3,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
+from .decorators import allowed_users, unauthenticated_user
 
+from accounts.decorators import unauthenticated_user
 from accounts.filters import OrderFilter
 from .models import Product, Customer, Order
 from .forms import OrderForm, CustomerForm, CreateUserForm
@@ -12,6 +14,7 @@ from django.forms import inlineformset_factory #create multiple fields to create
 
 # Create your views here.
 # register view
+@unauthenticated_user
 def register_view(request):
     form = CreateUserForm()
 
@@ -29,6 +32,7 @@ def register_view(request):
 
 
 # login view
+@unauthenticated_user
 def login_view(request):
     if request.method == "POST":
         username = request.POST.get('username')
@@ -54,6 +58,7 @@ def logout_view(request):
 
 # home view
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def home(request):
     customers = Customer.objects.all()
     orders= Order.objects.all()
