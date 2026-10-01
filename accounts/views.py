@@ -63,8 +63,8 @@ def logout_view(request):
     return redirect('login')
 
 # home view
-# @login_required(login_url='login')
-# @admin_only
+@login_required(login_url='login')
+@admin_only
 def home(request):
     customers = Customer.objects.all()
     orders= Order.objects.all()
@@ -85,6 +85,12 @@ def home(request):
         'orders_pending': orders_pending,
     }
     return render(request, 'home.html', context)
+
+
+# user profile
+def userPage(request):
+    context = {}
+    return render(request, 'user.html', context)
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['admin'])
